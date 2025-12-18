@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TodoMass | ENSTI Edition</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="app-layout">
+        <aside class="sidebar">
+            <div class="brand">
+                <h1>Todo<span class="highlight">Mass</span></h1>
+                <p>Dynamic Day Architect</p>
+            </div>
+
+            <div class="clock-card">
+                <div class="time-display" id="digital-clock">00:00:00</div>
+                <div class="date-display" id="date-display">Loading...</div>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-header">
+                    <span>Day Complete</span>
+                    <span id="progress-text">0%</span>
+                </div>
+                <div class="progress-track">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+            </div>
+
+            <div class="tools">
+                <button class="btn-primary" id="add-task-btn"><i class="ri-add-circle-line"></i> Add Activity</button>
+                <button class="btn-secondary" id="darkModeBtn"><i class="ri-moon-clear-line"></i> Theme</button>
+                <button class="btn-danger" id="resetBtn"><i class="ri-delete-bin-2-line"></i> Clear Day</button>
+            </div>
+
+            <div class="stats-area">
+                <h3>Time Analysis</h3>
+                <ul id="stats-list"></ul>
+            </div>
+
+            <footer class="footer-credit">
+                <p>Designed by <span class="author">ABDELHAK</span></p>
+                <p class="school">For ENSTI Students • 2026</p>
+            </footer>
+        </aside>
+
+        <main class="timeline-wrapper">
+            <div class="timeline-header">
+                <h2>Your Timeline</h2>
+                <p>God first. Always grateful</p>
+            </div>
+            <div id="timeline-container" class="timeline-container"></div>
+        </main>
+    </div>
+
+    <div id="task-modal" class="modal-backdrop">
+        <div class="modal-card">
+            <div class="modal-head">
+                <h2 id="modal-title">New Activity</h2>
+                <button id="close-modal"><i class="ri-close-line"></i></button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="input-group">
+                    <label>Activity Name</label>
+                    <input type="text" id="inp-name" placeholder="e.g. Deep Work" />
+                </div>
+
+                <div class="row">
+                    <div class="input-group">
+                        <label>Start Time</label>
+                        <input type="time" id="inp-start" required />
+                    </div>
+                    <div class="input-group">
+                        <label>End Time</label>
+                        <input type="time" id="inp-end" required />
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Color Tag</label>
+                    <div class="color-options" id="color-options"></div>
+                    <input type="hidden" id="inp-color" value="#6366f1">
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button id="delete-task-btn" class="btn-delete" style="display:none;">Delete</button>
+                <button id="save-task-btn" class="btn-save">Save Activity</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
